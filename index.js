@@ -10,10 +10,7 @@ function nextSequence(buttonColors){
 
 $(document).keydown(function(){
   if (count === 0){
-  var color = randomColor();
-  game_comp.push(color);
-  count++;
-  $("h1").text("Level "+count);
+  auto_click();
 }
 });
 
@@ -34,7 +31,6 @@ function check(currentPoint){
   var check = 0;
     if (game_comp[currentPoint] === game_us[currentPoint]){
       if (game_comp.length === game_us.length){
-      count++;
       auto_click();
     }
   }
@@ -49,6 +45,7 @@ function auto_click(){
     var color = randomColor();
     game_comp.push(color);
     game_us = [];
+    count++;
     $("h1").text("Level "+count);
   },500);
 
